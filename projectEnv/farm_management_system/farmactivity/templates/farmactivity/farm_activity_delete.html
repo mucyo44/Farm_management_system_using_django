@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Are you sure you want to delete this activity</p>
+
+    <p><strong>Name:</strong>{{activity.name}}</p>
+    <p><strong>Description:</strong>{{activity.description}}</p>
+    <p><strong>Start Date:</strong>{{activity.start_date}}</p>
+    <p><strong>End Date:</strong>{{activity.end_date}}</p>
+
+    <form method="post"> 
+        {% crsf_token %}
+        <button type="submit">Delete</button>
+    </form>
+
+    <a href="{ % url 'farm_activity_list' %}">Cancel</a>
+</body>
+</html>

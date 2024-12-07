@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="d-flex flex-column justify-content-center">
+    <header class="bg-success text-white text-center py-4 mt-5">
+        <h1>Welcome to Your Farm Management Dashboard</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Farm Management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'livestock_list' %}">Manage Livestock</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'crop_list' %}">Manage Crops</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'farm_activity_list' %}">View Activity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <section>
+            <h2>Farm Overview</h2>
+            <p>Welcome back, {{ user.username }}!</p>
+            <p>Here you can manage your livestock, crops, and farm activities efficiently.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card ml-2">
+                        <div class="card-body text-center">
+                            <h3>Total Livestock</h3>
+                            <p>{{ total_livestock }} animals</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card ml-2">
+                        <div class="card-body text-center">
+                            <h3>Total Crops</h3>
+                            <p>{{ total_crops }} tons</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card ml-2">
+                        <div class="card-body text-center">
+                            <h3>Recent Activity</h3>
+                            <p>{{ recent_activity }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-3">
+        <p>&copy; 2024 Farm Management System</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
